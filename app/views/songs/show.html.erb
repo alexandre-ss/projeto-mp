@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @song.title %>
+</p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @song.artist %>
+</p>
+
+
+<%= form_with model: @ratings, url: create_rating_path, remote: true do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :song_id, value: @song.id %>
+  <%= f.label :value %>
+  <%= f.number_field :value %>
+  <%= f.submit "Enviar" %>
+<% end %>
+
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>
