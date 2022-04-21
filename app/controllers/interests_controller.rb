@@ -10,10 +10,15 @@ class InterestsController < ApplicationController
     #     end
     #     @interest.save!
     # end
+    def index 
+        @non_interests = Interest.where(user_id: current_user.id, opinion: false)
+        @interests = Interest.where(user_id: current_user.id, opinion: true)
+    end
 
 
     def create
-        @interest = Interest.new(user_id: params[:user_id], song_id: params[:song_id], opinion: params[:opinion]) 
+        value = params[:opinion] == 0 ? false : true 
+        @interest = Interest.new(user_id: params[:user_id], song_id: params[:song_id], opinion: value) 
         @interest.save!
     end
 

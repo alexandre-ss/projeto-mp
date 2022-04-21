@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>My Interests</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Artist</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @interests.each do |i| %>
+      <% song = Song.find_by(id: i.song_id) %>
+      <tr>
+        <td><%= song.title %></td>
+        <td><%= song.artist %></td>
+        <td><%= link_to 'Show', song %></td>
+        <td><%= link_to 'Dislike', update_interests_path(:song_id => song.id, :opinion => 0, :user_id => current_user.id), method: :patch %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<br>
+
+<h1>My Non Interests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Artist</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @non_interests.each do |i| %>
+    <% song = Song.find_by(id: i.song_id) %>
+      <tr>
+        <td><%= song.title %></td>
+        <td><%= song.artist %></td>
+        <td><%= link_to 'Show', song %></td>
+        <td><%= link_to 'Like', update_interests_path(:song_id => song.id, :opinion => 1, :user_id => current_user.id), method: :patch %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Back', songs_path %>

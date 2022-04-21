@@ -11,10 +11,9 @@
 </p>
 
 
-<%= form_with model: @ratings, url: create_rating_path, remote: true do |f| %>
+<%= form_for(@rating, remote: true, url: create_rating_path)  do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :song_id, value: @song.id %>
-  <%= f.label :value %>
   <%= f.number_field :value %>
   <%= f.submit "Enviar" %>
 <% end %>
