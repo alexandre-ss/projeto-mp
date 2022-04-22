@@ -1,0 +1,20 @@
+<% if current_user %>
+<! alterar para current_user.name depois>
+  <h1>Olá <%= current_user.email%> </h1>
+<% else %>
+<h1>Olá alguma coisa aqui</h1>
+<% end %>
+
+<%
+=begin%>
+colocar links para acesso mais fácil
+ <%= link_to 'Edit', edit_song_path(song) %>
+<%= link_to 'Edit', edit_song_path(song) %>
+<%= link_to 'Edit', edit_song_path(song) %>
+<%= link_to 'Edit', edit_song_path(song) %>
+<%= link_to 'Edit', edit_song_path(song) %>
+<%= link_to 'Edit', edit_song_path(song) %>
+<%= link_to 'Edit', edit_song_path(song) %>
+<%= link_to 'Edit', edit_song_path(song) %> 
+<%
+=end%>

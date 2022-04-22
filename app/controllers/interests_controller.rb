@@ -17,7 +17,6 @@ class InterestsController < ApplicationController
             @interest = Interest.new(user_id: params[:user_id], song_id: params[:song_id], opinion: params[:opinion]) 
         else 
             check_value = params[:opinion] == "0" ? false : true 
-            puts "oi #{check_value}"
             @interest.update(user_id: params[:user_id], song_id: params[:song_id], opinion: check_value) 
         end
         @interest.save

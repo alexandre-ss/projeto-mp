@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :ratings
-  root "songs#index"
+  root "homepage#index"
 
   devise_for :users
   resources :songs
@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   post 'create_rating', to: 'ratings#create'
   patch 'update_rating', to: 'ratings#update'
+
+  get 'most_popular', to: 'songs#most_popular', as: :most_popular
 end
