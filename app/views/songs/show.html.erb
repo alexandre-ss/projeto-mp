@@ -10,7 +10,13 @@
   <%= @song.artist %>
 </p>
 
+<% if @song.ratings.exists?%>
+<p>
+  <strong>Rating:</strong>
 
+  <%= @song.ratings.first.value %>
+</p>
+<%end%>
 <%= form_for(@rating, remote: true, url: create_rating_path)  do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :song_id, value: @song.id %>

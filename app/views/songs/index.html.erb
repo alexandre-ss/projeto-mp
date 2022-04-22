@@ -21,15 +21,8 @@
             <td><%= link_to 'Edit', edit_song_path(song) %></td>
             <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <%end%>
-        <% aux = Interest.where(user_id: current_user.id , song_id: song.id).first %>
-        <% if aux.nil? %>
-            <td><%= link_to 'Like', create_interests_path(:song_id => song.id, :opinion => 1, :user_id => current_user.id), method: :post, remote: true %></td>
-            <td><%= link_to 'Dislike', create_interests_path(:song_id => song.id, :opinion => 0, :user_id => current_user.id), method: :post, remote: true %></td>
-        <% else %>
-            <%puts "entrou"%>
-            <td><%= link_to 'Like', update_interests_path(:song_id => song.id, :opinion => 1, :user_id => current_user.id), method: :patch, remote: true %></td>
-            <td><%= link_to 'Dislike', update_interests_path(:song_id => song.id, :opinion => 0, :user_id => current_user.id), method: :patch, remote: true%></td>
-        <% end %>
+          <td><%= link_to 'Like', create_interests_path(:song_id => song.id, :opinion => 1,  :user_id => current_user.id), method: :post,remote: true %></td>
+          <td><%= link_to 'Dislike', create_interests_path(:song_id => song.id, :opinion => 0, :user_id => current_user.id), method: :post, remote: true %></td>
       </tr>
     <% end %>
   </tbody>

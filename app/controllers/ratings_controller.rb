@@ -21,8 +21,16 @@ class RatingsController < ApplicationController
 
   # POST /ratings or /ratings.json
   def create
-    @rating = Rating.new(rating_params)
-    @rating.save
+    @rating_verify = Rating.where(user_id: params[:rating][:user_id], song_id: params[:rating][:song_id]).first
+
+    if @rating_verify.nil?
+      @rating = Rating.new(rating_params)
+      @rating.save
+    else
+      @rating_verify.update(rating_params)
+    end
+
+    redirect_to song_path(params[:rating][:song_id])
   end
  
 

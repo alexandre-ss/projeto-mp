@@ -1,5 +1,6 @@
 class SongsController < ApplicationController
   before_action :set_song, only: %i[ show edit update destroy ]
+  before_action :authenticate_user! 
 
   # GET /songs or /songs.json
   def index
@@ -22,7 +23,7 @@ class SongsController < ApplicationController
 
   # POST /songs or /songs.json
   def create
-    if current_user != nil
+    unless current_user.nil?
       @song = Song.new(song_params)
       @song.user_id = current_user.id 
       respond_to do |format|
@@ -52,7 +53,7 @@ class SongsController < ApplicationController
 
   # DELETE /songs/1 or /songs/1.json
   def destroy
-    if current_user.id == @song.id
+    if current_user.id == @song.user_id
       @song.destroy
 
       respond_to do |format|
