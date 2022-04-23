@@ -6,10 +6,10 @@ RSpec.describe User, type: :model do
       usuario = build(:user)
       expect(usuario).to be_valid
     end
-    it 'when the user has no name' do
-        usuario = build(:user, name:nil)
-        expect(usuario).to be_invalid
-    end
+    # it 'when the user has no name' do
+    #     usuario = build(:user, name:nil)
+    #     expect(usuario).to be_invalid
+    # end
     it 'when the user has no email' do
         usuario = build(:user, email:nil)
         expect(usuario).to be_invalid
