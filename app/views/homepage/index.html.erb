@@ -3,18 +3,14 @@
   <h1>Olá <%= current_user.email%> </h1>
 <% else %>
 <h1>Olá alguma coisa aqui</h1>
+<%= link_to 'Fazer login', user_session_path%>
 <% end %>
 
-<%
-=begin%>
-colocar links para acesso mais fácil
- <%= link_to 'Edit', edit_song_path(song) %>
-<%= link_to 'Edit', edit_song_path(song) %>
-<%= link_to 'Edit', edit_song_path(song) %>
-<%= link_to 'Edit', edit_song_path(song) %>
-<%= link_to 'Edit', edit_song_path(song) %>
-<%= link_to 'Edit', edit_song_path(song) %>
-<%= link_to 'Edit', edit_song_path(song) %>
-<%= link_to 'Edit', edit_song_path(song) %> 
-<%
-=end%>
+
+<%= link_to 'Músicas', songs_path, method: :get %>
+<br>
+<%= link_to 'Adicionar músicas', new_song_path %>
+<br>
+<%= link_to 'Meus interesses', index_path %>
+<br>
+<%= link_to 'Músicas populares', most_popular_path %>

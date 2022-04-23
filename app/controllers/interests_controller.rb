@@ -1,4 +1,6 @@
 class InterestsController < ApplicationController
+    before_action :authenticate_user! 
+
     def index 
         @non_interests = Interest.where(user_id: current_user.id, opinion: false)
         @interests = Interest.where(user_id: current_user.id, opinion: true)

@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2022_04_21_221623) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "interests", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "song_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "song_id", null: false
     t.boolean "opinion"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -24,8 +27,8 @@ ActiveRecord::Schema.define(version: 2022_04_21_221623) do
 
   create_table "ratings", force: :cascade do |t|
     t.integer "value"
-    t.integer "user_id", null: false
-    t.integer "song_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "song_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["song_id"], name: "index_ratings_on_song_id"
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 2022_04_21_221623) do
     t.string "artist"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_songs_on_user_id"
   end
 

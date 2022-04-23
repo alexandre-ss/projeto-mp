@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   before_action :set_song, only: %i[ show edit update destroy ]
-  before_action :authenticate_user! 
+  before_action :authenticate_user!, only: %i[new create update]
 
   # GET /songs or /songs.json
   def index
