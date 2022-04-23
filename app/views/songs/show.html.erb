@@ -1,14 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @song.title %>
-</p>
 
-<p>
-  <strong>Artist:</strong>
-  <%= @song.artist %>
-</p>
+
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">
+      <p>
+        <%= @song.title %>
+      </p>
+    </h5>
+    <p>
+      <strong>Artist:</strong>
+      <%= @song.artist %>
+    </p>
+    <a href="<%= edit_song_path(@song) %>" class="btn btn-primary">Edit</a>
+    <a href="<%= songs_path %>" class="btn btn-success">Back</a>
+
+  </div>
+</div>
 
 <% if @song.ratings.exists?%>
 <p>
@@ -17,13 +27,23 @@
   <%= @song.ratings.first.value %>
 </p>
 <%end%>
-<%= form_for(@rating, remote: true, url: create_rating_path)  do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.hidden_field :song_id, value: @song.id %>
-  <%= f.number_field :value %>
-  <%= f.submit "Enviar" %>
-<% end %>
+
+<div>
+  <%if current_user %>
+    <%= form_for(@rating, remote: true, url: create_rating_path)  do |f| %>
+
+      <div class="form-group row">
+        <div class ="col-2">
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :song_id, value: @song.id %>
+          <%= f.number_field :value, class: "form-control" %>
+        </div>
+        <a role="button"><%= f.submit "Enviar", class: "btn btn-secondary mt-2 mr-2"%> </a>
+      </div>
+    <% end %>
+  <% end %>
+</div>
 
 
-<%= link_to 'Edit', edit_song_path(@song) %> |
-<%= link_to 'Back', songs_path %>
+
+

@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <a class="navbar-brand" href="<%=root_path%>">RECOMUSIC</a>
+  <div class="collapse navbar-collapse" id="collapsibleNavId">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="<%=songs_path%>">Songs </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="<%=user_dashboard_path%>">Dashboard </a>
+      </li>
+      <li>
+        <%if current_user%>
+          <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "nav-link"  %>
+        <% else %>
+          <%= link_to 'Fazer login', user_session_path, class: "nav-link"  %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>

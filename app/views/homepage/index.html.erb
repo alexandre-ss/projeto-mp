@@ -1,16 +1,20 @@
 <% if current_user %>
-<! alterar para current_user.name depois>
-  <h1>Olá <%= current_user.email%> </h1>
+  <h1 class = "text-center">Olá <%= current_user.name%> </h1>
+  <br>
 <% else %>
-<h1>Olá alguma coisa aqui</h1>
-<%= link_to 'Fazer login', user_session_path%>
+<h1 class = "text-center">Olá stranger </h1>
+
+<br>
 <% end %>
 
-
-<%= link_to 'Músicas', songs_path, method: :get %>
-<br>
-<%= link_to 'Adicionar músicas', new_song_path %>
-<br>
-<%= link_to 'Meus interesses', index_path %>
-<br>
-<%= link_to 'Músicas populares', most_popular_path %>
+<div class = "row">
+  <%= link_to 'Músicas', songs_path, method: :get, class: "btn btn-dark mt-2" %>
+  <br>
+  <%= link_to 'Adicionar músicas', new_song_path, class: "btn btn-dark mt-2" %>
+  <br>
+  <%= link_to 'Meus interesses', index_path, class: "btn btn-dark mt-2" %>
+  <br>
+  <%= link_to 'Músicas populares', most_popular_path, class: "btn btn-dark mt-2" %>
+  <br>
+  <%= link_to 'Dashboard', user_dashboard_path, class: "btn btn-dark mt-2" %>
+</div>
