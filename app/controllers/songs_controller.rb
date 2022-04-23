@@ -70,6 +70,7 @@ class SongsController < ApplicationController
     popular_songs.each do |s|
       song = Song.find_by(id: s.song_id)
       counter[song.title] ||= 0
+    
       counter[song.title] += 1
     end
     most_populars = counter.sort_by{ |k, v| -v}.first(5).map(&:first)
