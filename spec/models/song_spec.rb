@@ -4,7 +4,7 @@ RSpec.describe Song, type: :model do
   context 'check Song' do 
     it 'when the song is ok' do
       create(:user, id:1)
-      musica = create(:song)
+      musica = build(:song)
       expect(musica).to be_valid
     end
     it 'when the song has no title' do
@@ -17,8 +17,12 @@ RSpec.describe Song, type: :model do
       musica = build(:song, artist:nil)
       expect(musica).to be_invalid
     end
-    it 'when the song has no poster/user' do
+    it 'when the songs poster does not exist' do
       musica = build(:song)
+      expect(musica).to be_invalid
+    end
+    it 'when the song has no poster/user' do
+      musica = build(:song, user_id:nil)
       expect(musica).to be_invalid
     end
   end
