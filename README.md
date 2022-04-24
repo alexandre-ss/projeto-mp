@@ -3,22 +3,24 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+dbdiagram: https://dbdiagram.io/d/625226f52514c9790300a751
 
-* Ruby version
+Iniciar:
+- bundle install
+- rails db:create
+- rails db:migrate
+- rails db:seed
 
-* System dependencies
+Para rodar os testes:
+- rspec spec ou bundle exex rspec
 
-* Configuration
+Para ver a cobertura de código dos testes abrir a pasta coverage/index.html
+- no linux, xdg-open coverage/index.html
 
-* Database creation
+Versão do ruby: 3.0.0
 
-* Database initialization
+Versão do rails: 6.1.5
 
-* How to run the test suite
+Banco de dados: postgresql
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Porta do server: 3000
