@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   before_action :set_song, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: %i[new create update]
+  before_action :authenticate_user!, only: %i[new create update recommend]
 
   # GET /songs or /songs.json
   def index
@@ -63,6 +63,59 @@ class SongsController < ApplicationController
     end
   end
 
+  def recommend 
+    user_interests = current_user.interests.where(opinion: true)
+    common_users = []
+    user_songs = []
+    user_interests.each do |user_interest|
+      user_songs << Song.find_by(id: user_interest.song_id)
+    end
+    user_songs.each do |us|
+      common_interests = Interest.where(song_id: us.id,opinion: true)
+      common_interests.each do |ci|
+        common_users << User.find_by(id: ci.user_id) 
+      end
+    end
+   # puts "COMMON USER #{common_users.inspect}"
+    popular_songs = []
+    common_users.each do |common_user|
+      interesses_relevantes = common_user.interests.where(opinion: true)
+      interesses_relevantes.each do |interesses_relevante|
+        popular_songs << interesses_relevante.song
+      end
+    end
+    puts "POPULAR SONGS //////////////// #{popular_songs.inspect}"
+
+    popular_songs.each do |popular_song|
+      dislikes = popular_song.interests.where(user_id: current_user.id, opinion: false)
+    end
+    popular_songs.each do |popular_song|
+      dislike = popular_song.interests.where(user_id: current_user.id, opinion: false).first
+      if user_songs.include?(popular_song) || popular_song == dislike
+        popular_songs[popular_songs.find_index(popular_song)] = 0
+      end
+    end
+
+    counter = {}
+    popular_songs.each do |s|
+      if s != 0
+        counter[s.title] ||= 0
+        counter[s.title] += 1
+      end
+    end
+    puts counter
+    most_populars = counter.sort_by{ |k, v| -v}.first(5).map(&:first)
+    @top_most_popular = []
+    most_populars.each do |s|
+      aux = Song.find_by(title: s)
+      @top_most_popular << aux
+    end
+    if @top_most_popular.empty? 
+      @top_most_popular = most_popular
+    end
+  end
+
+
   def most_popular
     popular_songs = Interest.where(opinion: true)
     counter = {}
@@ -79,6 +132,7 @@ class SongsController < ApplicationController
       aux = Song.find_by(title: s)
       @top_most_popular << aux
     end
+    return @top_most_popular
   end
 
   private

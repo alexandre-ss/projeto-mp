@@ -8,9 +8,13 @@
 
 u = User.create!(email: "admin@admin.com", password: 123456, name: "admin", role: "admin")
 u1 = User.create!(email: "user@user.com", password: 123456, name: "user", role: "user")
+u2 = User.create!(email: "user2@user.com", password: 123456, name: "user2", role: "user")
+u3 = User.create!(email: "user3@user.com", password: 123456, name: "user3", role: "user")
 
-songs = ["musica1","musica2","musica3","musica4","musica5"]
+
+songs = ["musica1","musica2","musica3","musica4","musica5","musica6"]
 
 songs.each do |s|
   Song.create!(title: s, artist: "artist", user_id: u1.id)
 end
+
