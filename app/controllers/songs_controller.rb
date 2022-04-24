@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   before_action :set_song, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: %i[new create update]
+  before_action :authenticate_user!, only: %i[new create update recommend]
 
   # GET /songs or /songs.json
   def index
@@ -110,6 +110,9 @@ class SongsController < ApplicationController
       aux = Song.find_by(title: s)
       @top_most_popular << aux
     end
+    if @top_most_popular.empty? 
+      @top_most_popular = most_popular
+    end
   end
 
 
@@ -128,6 +131,7 @@ class SongsController < ApplicationController
       aux = Song.find_by(title: s)
       @top_most_popular << aux
     end
+    return @top_most_popular
   end
 
   private

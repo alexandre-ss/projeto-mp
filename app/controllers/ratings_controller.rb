@@ -9,7 +9,7 @@ class RatingsController < ApplicationController
   # POST /ratings or /ratings.json
   def create
     @rating_verify = Rating.where(user_id: params[:rating][:user_id], song_id: params[:rating][:song_id]).first
-
+    puts @rating_verify
     if @rating_verify.nil?
       @rating = Rating.new(rating_params)
       @rating.save
