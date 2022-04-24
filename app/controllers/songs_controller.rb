@@ -53,7 +53,7 @@ class SongsController < ApplicationController
 
   # DELETE /songs/1 or /songs/1.json
   def destroy
-    if current_user.id == @song.user_id
+    if current_user.id == @song.user_id || current_user.is_admin
       @song.destroy
 
       respond_to do |format|

@@ -20,7 +20,7 @@
         <td><%= song.artist %></td>
         <td><%= link_to 'Show', song %></td>
         <%if current_user %>
-          <%if current_user.id == song.user_id%>
+          <%if current_user.id == song.user_id || current_user.is_admin%>
               <td><%= link_to 'Edit', edit_song_path(song) %></td>
               <td><%= link_to 'Destroy', song, method: :delete %></td>
           <%end%>
