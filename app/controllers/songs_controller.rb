@@ -85,17 +85,26 @@ class SongsController < ApplicationController
       end
     end
     puts "POPULAR SONGS //////////////// #{popular_songs.inspect}"
-       # common_songs << cu.songs.select{|s| s.id != us.id && us.interests.where(user_id: current_user.id).first.opinion == true}
-        #puts " Interesses do usuario  ///////////////////////////////////// #{us.interests.where(user_id: current_user.id).first.opinion.inspect}"
+
+    popular_songs.each do |popular_song|
+      dislikes = popular_song.interests.where(user_id: current_user.id, opinion: false)
+    end
+    popular_songs.each do |popular_song|
+      dislike = popular_song.interests.where(user_id: current_user.id, opinion: false).first
+      if user_songs.include?(popular_song) || popular_song == dislike
+        popular_songs[popular_songs.find_index(popular_song)] = 0
+      end
+    end
 
     counter = {}
     popular_songs.each do |s|
-            counter[s.title] ||= 0
-            counter[s.title] += 1
+      if s != 0
+        counter[s.title] ||= 0
+        counter[s.title] += 1
+      end
     end
     puts counter
     most_populars = counter.sort_by{ |k, v| -v}.first(5).map(&:first)
-    puts "MOST POPULAR #{most_populars}"
     @top_most_popular = []
     most_populars.each do |s|
       aux = Song.find_by(title: s)
