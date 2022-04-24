@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Apr 24 01:39:53 2022
+# Make data base, printed on Sun Apr 24 01:59:56 2022
 
 # Variables
 
@@ -185,7 +185,7 @@ SHLVL = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-2e4cbb1b-775c-4767-b056-abf86369d29e.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-7a71c732-116c-424f-8782-20abc95540f0.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -275,7 +275,7 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 129345
+VSCODE_PID = 134555
 # environment
 MY_RUBY_HOME = /home/arthur/.rvm/rubies/ruby-3.0.0
 # variable set hash-table stats:
@@ -303,6 +303,7 @@ all:
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has not been updated.
+ 
 
 # Not a target:
 Makefile:
@@ -315,7 +316,6 @@ Makefile:
 makefile:
 #  Implicit rule search has been done.
 #  File does not exist.
- 
 #  File has been updated.
 #  Failed to be updated.
 
@@ -346,6 +346,6 @@ GNUmakefile:
 # strcache performance: lookups = 43 / hit rate = 6%
 # hash-table stats:
 # Load=40/8192=0%, Rehash=0, Collisions=1/43=2%
-# Finished Make data base on Sun Apr 24 01:39:53 2022
+# Finished Make data base on Sun Apr 24 01:59:56 2022
 
  
