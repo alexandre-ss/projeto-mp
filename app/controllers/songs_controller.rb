@@ -63,6 +63,47 @@ class SongsController < ApplicationController
     end
   end
 
+  def recommend 
+    user_interests = current_user.interests.where(opinion: true)
+    common_users = []
+    user_songs = []
+    user_interests.each do |user_interest|
+      user_songs << Song.find_by(id: user_interest.song_id)
+    end
+    user_songs.each do |us|
+      common_interests = Interest.where(song_id: us.id,opinion: true)
+      common_interests.each do |ci|
+        common_users << User.find_by(id: ci.user_id) 
+      end
+    end
+   # puts "COMMON USER #{common_users.inspect}"
+    popular_songs = []
+    common_users.each do |common_user|
+      interesses_relevantes = common_user.interests.where(opinion: true)
+      interesses_relevantes.each do |interesses_relevante|
+        popular_songs << interesses_relevante.song
+      end
+    end
+    puts "POPULAR SONGS //////////////// #{popular_songs.inspect}"
+       # common_songs << cu.songs.select{|s| s.id != us.id && us.interests.where(user_id: current_user.id).first.opinion == true}
+        #puts " Interesses do usuario  ///////////////////////////////////// #{us.interests.where(user_id: current_user.id).first.opinion.inspect}"
+
+    counter = {}
+    popular_songs.each do |s|
+            counter[s.title] ||= 0
+            counter[s.title] += 1
+    end
+    puts counter
+    most_populars = counter.sort_by{ |k, v| -v}.first(5).map(&:first)
+    puts "MOST POPULAR #{most_populars}"
+    @top_most_popular = []
+    most_populars.each do |s|
+      aux = Song.find_by(title: s)
+      @top_most_popular << aux
+    end
+  end
+
+
   def most_popular
     popular_songs = Interest.where(opinion: true)
     counter = {}

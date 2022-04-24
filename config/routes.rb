@@ -17,4 +17,5 @@ Rails.application.routes.draw do
 
   get 'most_popular', to: 'songs#most_popular', as: :most_popular
   get 'user_dashboard', to: 'dashboards#dashboard', as: :user_dashboard
+  get 'recommend', to: 'songs#recommend', as: :song_recommendation
 end
