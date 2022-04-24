@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Apr 23 13:19:05 2022
+# Make data base, printed on Sun Apr 24 01:39:53 2022
 
 # Variables
 
@@ -185,7 +185,7 @@ SHLVL = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-d8044cf9-d440-4ce3-95e3-7b21cf9f042a.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-2e4cbb1b-775c-4767-b056-abf86369d29e.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -251,13 +251,13 @@ LC_ALL = C
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/a311cb61_5e18_4b1a_b365_c47b98880ddd
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/e47e87ef_27fb_4eec_83a1_d243022acfe2
 # automatic
 ^F = $(notdir $^)
 # environment
 rvm_prefix = /home/arthur
 # environment
-GNOME_TERMINAL_SERVICE = :1.109
+GNOME_TERMINAL_SERVICE = :1.6731
 # default
 SUFFIXES := 
 # environment
@@ -275,11 +275,10 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 14646
+VSCODE_PID = 129345
 # environment
 MY_RUBY_HOME = /home/arthur/.rvm/rubies/ruby-3.0.0
 # variable set hash-table stats:
- 
 # Load=133/1024=13%, Rehash=0, Collisions=21/155=14%
 
 # Pattern-specific Variable Values
@@ -288,9 +287,9 @@ MY_RUBY_HOME = /home/arthur/.rvm/rubies/ruby-3.0.0
 
 # Directories
 
-# . (device 2051, inode 8395349): 31 files, no impossibilities.
+# . (device 2051, inode 8395349): 32 files, no impossibilities.
 
-# 31 files, no impossibilities in 1 directories.
+# 32 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -316,6 +315,7 @@ Makefile:
 makefile:
 #  Implicit rule search has been done.
 #  File does not exist.
+ 
 #  File has been updated.
 #  Failed to be updated.
 
@@ -340,12 +340,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 39 / storage = 348 B / avg = 8 B
-# current buf: size = 8162 B / used = 348 B / count = 39 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 40 / storage = 357 B / avg = 8 B
+# current buf: size = 8162 B / used = 357 B / count = 40 / avg = 8 B
 
-# strcache performance: lookups = 42 / hit rate = 7%
+# strcache performance: lookups = 43 / hit rate = 6%
 # hash-table stats:
-# Load=39/8192=0%, Rehash=0, Collisions=1/42=2%
-# Finished Make data base on Sat Apr 23 13:19:05 2022
+# Load=40/8192=0%, Rehash=0, Collisions=1/43=2%
+# Finished Make data base on Sun Apr 24 01:39:53 2022
 
  

@@ -61,5 +61,21 @@ RSpec.describe 'Song', type: :request do
                 expect(page.current_path).to eq songs_path
             end
         end
+        # context 'GET #recommend' do 
+        #     it 'should recommend songs' do 
+        #         usuario1 = create(:user, id:1)
+        #         musica1 = create(:song, title: "musica1")
+        #         musica2 = create(:song, title: "musica2")
+        #         visit new_user_session_path
+        #         fill_in "Email", with: usuario.email
+        #         fill_in "Password", with: usuario.password
+        #         click_on "Log in"
+        #         visit songs_path
+        #         click_on "Like"
+        #         click_on "Like"
+        #         expect(page).to have_content("Song was successfully destroyed.")
+        #         expect(page.current_path).to eq songs_path
+        #     end
+        # end
     end
 end

@@ -7,7 +7,6 @@ ruby '3.0.0'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.4'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3', '~> 1.4'
-
 gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
@@ -50,6 +49,7 @@ group :development do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'capybara', '>= 3.26'
+  gem 'simplecov', require: false, group: :test
 end
 
 group :test do
@@ -60,6 +60,7 @@ group :test do
   gem 'webdrivers'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'simplecov', require: false, group: :test
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
