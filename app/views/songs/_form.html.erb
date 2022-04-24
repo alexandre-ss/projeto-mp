@@ -23,6 +23,11 @@
       <%= form.text_field :artist,  class: "form-control" %>
     </div>
 
+    <div class="form-group field">
+      <%= form.label :image %>
+      <%= form.file_field :image,  class: "form-control", required: true %>
+    </div>
+
     <a role="button"><%= form.submit "Enviar", class: "btn btn-secondary mt-2 mr-2"%> </a>
   </div>
 </div>
