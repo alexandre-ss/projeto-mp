@@ -12,7 +12,7 @@ Iniciar:
 - rails db:seed
 
 Para rodar os testes:
-- rspec spec ou bundle exex rspec
+- rspec spec ou bundle exec rspec
 
 Para ver a cobertura de código dos testes abrir a pasta coverage/index.html
 - no linux, xdg-open coverage/index.html
