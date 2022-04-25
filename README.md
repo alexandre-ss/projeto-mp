@@ -3,7 +3,7 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-dbdiagram: https://dbdiagram.io/d/625226f52514c9790300a751
+dbdiagram: https://dbdiagram.io/d/6155c7da825b5b01461ae0c8
 
 Iniciar:
 - bundle install
@@ -12,7 +12,7 @@ Iniciar:
 - rails db:seed
 
 Para rodar os testes:
-- rspec spec ou bundle exex rspec
+- rspec spec ou bundle exec rspec
 
 Para ver a cobertura de código dos testes abrir a pasta coverage/index.html
 - no linux, xdg-open coverage/index.html
