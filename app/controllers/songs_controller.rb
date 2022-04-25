@@ -91,7 +91,14 @@ class SongsController < ApplicationController
     end
     popular_songs.each do |popular_song|
       dislike = popular_song.interests.where(user_id: current_user.id, opinion: false).first
-      if user_songs.include?(popular_song) || popular_song == dislike
+      puts "DISLIKE: #{dislike.inspect}"
+      if !dislike.nil?
+        dislike_song_id = dislike.song_id
+      else
+        dislike_song_id = 0
+      end
+      
+      if user_songs.include?(popular_song) || popular_song.id == dislike_song_id
         popular_songs[popular_songs.find_index(popular_song)] = 0
       end
     end
@@ -103,7 +110,6 @@ class SongsController < ApplicationController
         counter[s.title] += 1
       end
     end
-    puts counter
     most_populars = counter.sort_by{ |k, v| -v}.first(5).map(&:first)
     @top_most_popular = []
     most_populars.each do |s|
@@ -111,7 +117,7 @@ class SongsController < ApplicationController
       @top_most_popular << aux
     end
     if @top_most_popular.empty? 
-      @top_most_popular = most_popular
+      redirect_to most_popular_path
     end
   end
 
