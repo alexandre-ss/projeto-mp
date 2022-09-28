@@ -68,3 +68,6 @@ gem 'capybara', '>= 3.26'
 gem 'rspec-rails'
 gem 'factory_bot_rails'
 gem 'simplecov', require: false, group: :test
+gem 'net-smtp'
+gem 'net-pop'
+gem 'net-imap'
